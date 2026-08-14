@@ -27,31 +27,58 @@ def search_company(company_name):
         "Content-Type": "application/json"
     }
 
-    payload = {
-        "query": f"{company_name} annual financial results",
-        "numResults": 5
-    }
+    queries = [
+        f"{company_name} 2023 annual financial results",
+        f"{company_name} 2024 annual financial results",
+        f"{company_name} 2025 annual financial results",
+        f"{company_name} 2026 interim financial results",
+        f"{company_name} SENS financial results"
+    ]
 
-    response = requests.post(
-        url,
-        headers=headers,
-        json=payload
-    )
+    all_results = []
 
-    response.raise_for_status()
+    for query in queries:
 
-    results = response.json()["results"]
+        payload = {
+            "query": query,
+            "numResults": 5
+        }
 
-    for result in results:
-        result["source_type"] = classify_source(
-            result.get("url", "")
+        response = requests.post(
+            url,
+            headers=headers,
+            json=payload
+        )
+
+        response.raise_for_status()
+
+        results = response.json().get("results", [])
+
+        for result in results:
+
+            result["source_type"] = classify_source(
+                result.get("url", "")
             )
 
-        result["document_type"] = classify_document(
-          result.get("title",""),
-          result.get("url","")  
-        )
-    return results
+            result["document_type"] = classify_document(
+                result.get("title", ""),
+                result.get("url", "")
+            )
+
+            all_results.append(result)
+
+    # Remove duplicate documents.
+    unique_results = {}
+    for result in all_results:
+
+        result_url = result.get("url")
+
+        if not result_url:
+            continue
+
+        unique_results[result_url] = result
+
+    return list(unique_results.values())
 
 
 def download_document(url):
@@ -187,11 +214,7 @@ def get_company_intelligence(company_name):
         raise ValueError("Company name cannot be empty")
 
     results = search_company(company_name)
-    for result in results:
-        print("\nTITLE:", result.get("title"))
-        print("URL:", result.get("url"))
-        print("SOURCE:", result.get("source_type"))
-        print("DOCUMENT:", result.get("document_type"))
+    results = select_documents(results);
 
     facts = []
     sources = []
@@ -241,3 +264,50 @@ def get_company_intelligence(company_name):
         "sources": sources,
         "facts": facts
     }
+
+def document_priority(result):
+    """
+    Assign a priority to a search result.
+
+    Lower number = higher priority.
+    """
+
+    document_type = result.get("document_type")
+    source_type = result.get("source_type")
+
+    if document_type == "annual_financial_statement":
+        return 1
+
+    if document_type == "financial_results":
+        return 2
+
+    if source_type == "sens":
+        return 3
+
+    if document_type == "corporate_announcement":
+        return 4
+
+    return 5
+
+def select_documents(results, max_documents=8):
+    """
+    Select the highest-priority documents while avoiding duplicates.
+    """
+
+    # Remove duplicate URLs
+    unique_results = {}
+
+    for result in results:
+        url = result.get("url")
+
+        if not url:
+            continue
+
+        unique_results[url] = result
+
+    results = list(unique_results.values())
+
+    # Rank documents
+    results.sort(key=document_priority)
+
+    return results[:max_documents]

@@ -1,14 +1,18 @@
-# Company Intelligence API
+# Company Intelligence
 
-A Python API that retrieves publicly available company information and returns it as structured company intelligence.
+A Python module that retrieves publicly available company information and returns it as structured company intelligence.
 
-The API searches for relevant public company documents, retrieves supported financial and corporate documents, extracts factual information, normalizes numerical values, and returns the results as JSON.
+The module searches for relevant public company documents, including financial reports and SENS announcements, retrieves supported documents, extracts factual information, normalizes numerical values, and returns the results as a structured Python dictionary.
 
-The intended consumer does not need to interact with the extraction pipeline directly.
+The consumer does not need to interact with the search, document retrieval, PDF extraction, AI extraction, or normalization pipeline directly.
 
-They only need to call:
+They only need to import the module and call:
 
-    GET /company/{company_name}/intelligence
+    from public_intelligence import get_company_intelligence
+
+    result = get_company_intelligence("MTN Group")
+
+The returned `result` contains the company information, source documents, and extracted facts in a structured format.
 
 ---
 
@@ -21,14 +25,6 @@ The project requires:
 - An Exa API key
 - A Gemini API key
 
-The API has been tested with:
-
-- FastAPI
-- Uvicorn
-- Requests
-- PyMuPDF
-- Google GenAI
-
 Dependencies are listed in:
 
     requirements.txt
@@ -40,7 +36,6 @@ Dependencies are listed in:
 The project is organized as follows:
 
     .
-    ├── main.py
     ├── public_intelligence.py
     ├── extract_evidence.py
     ├── extract_pdf.py
@@ -48,10 +43,6 @@ The project is organized as follows:
     ├── requirements.txt
     ├── README.md
     └── .gitignore
-
-## main.py
-
-Provides the HTTP API using FastAPI.
 
 ## public_intelligence.py
 
@@ -219,84 +210,19 @@ Run:
     set GEMINI_API_KEY=your_gemini_api_key
 
 These variables will remain available for the current Command Prompt session.
-
 ---
+## 8. Usage
 
-# 8. Run the API
+After completing the environment setup, the consumer can use the module directly from Python:
 
-The FastAPI application is contained in `main.py`.
+    from public_intelligence import get_company_intelligence
 
-Start the server with:
+    result = get_company_intelligence("Company name")
 
-    uvicorn main:app --host 0.0.0.0 --port 8000
-
-The API will be available at:
-
-    http://localhost:8000
-
-For local development, the server can also be started with:
-
-    uvicorn main:app --reload --host 127.0.0.1 --port 8000
-
-The `--reload` option automatically restarts the server when source files change.
-
+    print(result["company"])
+    print(result["facts"])
 ---
-
-# 9. Verify the API
-
-Once the server is running, open:
-
-    http://localhost:8000/docs
-
-FastAPI provides an interactive API documentation interface.
-
-The company intelligence endpoint will appear as:
-
-    GET /company/{company_name}/intelligence
-
----
-
-# 10. API Endpoint
-
-## Get Company Intelligence
-
-Endpoint:
-
-    GET /company/{company_name}/intelligence
-
-The `company_name` parameter specifies the company for which intelligence should be retrieved.
-
-Example:
-
-    GET /company/MTN%20Group/intelligence
-
-The space in the company name is URL encoded as `%20`.
-
----
-
-# 11. Calling the API from Python
-
-The consumer only needs the `requests` library.
-
-Example:
-
-    import requests
-
-    company = "MTN Group"
-
-    response = requests.get(
-        f"http://localhost:8000/company/{company}/intelligence"
-    )
-
-    response.raise_for_status()
-
-    data = response.json()
-
-The resulting `data` object contains the company intelligence as a Python dictionary.
-
----
-
-# 12. Response Structure
+# 9. Response Structure
 
 The API returns JSON in the following general structure:
 
@@ -332,7 +258,7 @@ The API returns JSON in the following general structure:
 
 ---
 
-# 13. Accessing the Data
+# 10. Accessing the Data
 
 The main fields returned by the API are:
 
@@ -357,7 +283,7 @@ The original extracted value and supporting evidence are also retained.
 
 ---
 
-# 14. Source Information
+# 11. Source Information
 
 Each source is assigned a `source_id`.
 
@@ -386,7 +312,7 @@ This allows a consumer to associate an extracted fact with its original document
 
 ---
 
-# 15. Normalized Values
+# 12. Normalized Values
 
 Where possible, numerical values are converted into machine-readable values.
 
@@ -418,71 +344,18 @@ Normalization does not replace the original extracted information.
 
 ---
 
-# 16. Error Responses
+# 13. Error Responses
 
 ## Empty Company Name
 
-An empty company name results in a `400 Bad Request`.
+An empty or whitespace-only company name raises:
 
-Example:
+    ValueError("Company name cannot be empty")
 
-    {
-        "detail": "Company name cannot be empty"
-    }
-
-## Successful Request
-
-A successful request returns:
-
-    HTTP 200
-
-with the company intelligence JSON.
-
-## Other Errors
-
-Unexpected errors may result in an HTTP `500` response.
 
 ---
 
-# 17. Interactive API Documentation
-
-When the API is running, FastAPI provides interactive documentation at:
-
-    http://localhost:8000/docs
-
-This can be used to test the endpoint without writing a Python client.
-
----
-
-# 18. Testing from Python
-
-A simple integration test can be performed with:
-
-    import requests
-
-    response = requests.get(
-        "http://localhost:8000/company/MTN%20Group/intelligence"
-    )
-
-    print("Status:", response.status_code)
-
-    response.raise_for_status()
-
-    data = response.json()
-
-    print("Company:", data["company"])
-    print("Sources:", len(data["sources"]))
-    print("Facts:", len(data["facts"]))
-
-A successful response should produce:
-
-    Status: 200
-
-along with the requested company and the number of sources and facts returned.
-
----
-
-# 19. Environment Variables
+# 14. Environment Variables
 
 The following environment variables are required:
 
@@ -495,7 +368,7 @@ Never commit these values to the repository.
 
 ---
 
-# 20. Security
+# 15. Security
 
 API keys must not be:
 
@@ -516,9 +389,9 @@ If environment variables are stored using a `.env` file for local development, t
 
 ---
 
-# 21. Architecture
+# 16. Architecture
 
-The API operates as a pipeline:
+The company intelligence system operates as an internal Python pipeline:
 
     Company Name
          |
@@ -532,63 +405,69 @@ The API operates as a pipeline:
     Document Classification
          |
          v
+    Document Selection
+         |
+         v
     PDF Text Extraction
          |
          v
-    Evidence Extraction
+    Relevant Page Detection
+         |
+         v
+    Chunked Evidence Extraction
          |
          v
     Value Normalization
          |
          v
-    Structured JSON
+    Structured Python Dictionary
          |
          v
-    FastAPI
-         |
-         v
-    API Consumer
+    Consumer Python Code
 
-The API consumer does not need to interact with these internal stages.
+The consumer does not need to interact with any of the internal stages.
 
-The intended interface is the company intelligence endpoint.
+The intended interface is:
+
+    get_company_intelligence(company_name)
+
+The function handles the complete retrieval and extraction pipeline and returns the resulting company intelligence as a structured Python dictionary.
 
 ---
 
-# 22. API Consumer Workflow
+# 17. Consumer Workflow
 
-The intended workflow for an external consumer is:
+The intended workflow for the consumer is:
 
-    1. Provide a company name.
-    2. Call the company intelligence endpoint.
-    3. Receive the JSON response.
-    4. Read the returned facts and sources.
+    1. Set up the Python environment.
+    2. Configure the required API keys.
+    3. Import the company intelligence module.
+    4. Provide a company name.
+    5. Call `get_company_intelligence()`.
+    6. Receive the structured company intelligence.
+    7. Read the returned facts and sources.
 
 Example:
 
-    company = "MTN Group"
+    from public_intelligence import get_company_intelligence
 
-    response = requests.get(
-        f"http://API_HOST/company/{company}/intelligence"
-    )
+    company_data = get_company_intelligence("MTN Group")
 
-    response.raise_for_status()
+    print(company_data["company"])
+    print(company_data["facts"])
+    print(company_data["sources"])
 
-    company_data = response.json()
+No direct interaction with Exa, Gemini, PDF extraction, document classification,
+document selection, or normalization is required.
 
-No direct interaction with Exa, Gemini, PDF extraction, or normalization is required.
+The consumer only interacts with:
 
----
-
-# 23. Stopping the API
-
-To stop the development server, press:
-
-    Ctrl + C
+    get_company_intelligence(company_name)
 
 ---
 
-# 24. Deactivating the Virtual Environment
+
+# 18. Deactivating the Virtual Environment
 
 When finished working on the project:
 
@@ -596,7 +475,7 @@ When finished working on the project:
 
 ---
 
-# 25. Troubleshooting
+# 19. Troubleshooting
 
 ## `python3: command not found`
 
@@ -644,31 +523,22 @@ Windows PowerShell:
     echo $env:EXA_API_KEY
     echo $env:GEMINI_API_KEY
 
-## Port 8000 is already in use
+# 20. Development Status
 
-Start the API on another port:
-
-    uvicorn main:app --host 0.0.0.0 --port 8001
-
-The API will then be available at:
-
-    http://localhost:8001
-
----
-
-# 26. Development Status
-
-The API currently provides:
+The company intelligence module currently provides:
 
 - Public company document discovery
-- Financial document retrieval
-- PDF extraction
-- Evidence extraction
-- Numerical normalization
+- Financial document and SENS retrieval
+- Document classification and selection
+- PDF text extraction
+- Relevant page detection
+- Chunked evidence extraction
+- Numerical value normalization
 - Source tracking
-- Structured JSON responses
-- HTTP API access through FastAPI
+- Structured company intelligence
 
-The primary API interface is:
+The primary consumer interface is:
 
-    GET /company/{company_name}/intelligence
+    get_company_intelligence(company_name)
+
+The function returns the retrieved company information as a structured Python dictionary containing the company, source documents, and extracted facts.
