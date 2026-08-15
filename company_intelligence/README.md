@@ -1,544 +1,227 @@
-# Company Intelligence
+## Company Intelligence – Financial Data Module
 
-A Python module that retrieves publicly available company information and returns it as structured company intelligence.
+## 1. Purpose
 
-The module searches for relevant public company documents, including financial reports and SENS announcements, retrieves supported documents, extracts factual information, normalizes numerical values, and returns the results as a structured Python dictionary.
+The `company_intelligence` module provides structured external financial data for the
+20 Syn Bank corporate clients.
 
-The consumer does not need to interact with the search, document retrieval, PDF extraction, AI extraction, or normalization pipeline directly.
+The module uses Yahoo Finance through `yfinance` to retrieve publicly available
+financial information.
 
-They only need to import the module and call:
+The consumer does not need to interact with `yfinance` directly.
 
-    from public_intelligence import get_company_intelligence
-
-    result = get_company_intelligence("MTN Group")
-
-The returned `result` contains the company information, source documents, and extracted facts in a structured format.
+The consumer only needs to import and call the provided function.
 
 ---
 
-# 1. Requirements
+# 2. Requirements
 
-The project requires:
+Python 3.10 or newer is recommended.
 
-- Python 3.12 or later
-- Internet access
-- An Exa API key
-- A Gemini API key
-
-Dependencies are listed in:
+The module requires the dependencies listed in:
 
     requirements.txt
 
 ---
 
-# 2. Project Structure
-
-The project is organized as follows:
-
-    .
-    ├── public_intelligence.py
-    ├── extract_evidence.py
-    ├── extract_pdf.py
-    ├── normalize.py
-    ├── requirements.txt
-    ├── README.md
-    └── .gitignore
-
-## public_intelligence.py
-
-Controls the company intelligence retrieval pipeline.
-
-## extract_evidence.py
-
-Extracts structured factual evidence from retrieved documents.
-
-## extract_pdf.py
-
-Extracts text and page information from PDF documents.
-
-## normalize.py
-
-Converts extracted numerical values into machine-readable values.
-
-## requirements.txt
-
-Contains the Python dependencies required to run the project.
-
----
-
 # 3. Installation
 
-## 3.1 Clone the repository
+From the project root, create a virtual environment.
 
-Clone the repository using Git:
-
-    git clone <repository-url>
-
-Enter the project directory:
-
-    cd <project-directory>
-
----
-
-# 4. Create a Virtual Environment
-
-A virtual environment keeps the project's Python dependencies separate from the system Python installation.
-
-## Linux
-
-Run:
+## Linux / macOS
 
     python3 -m venv .venv
-
-## macOS
-
-Run:
-
-    python3 -m venv .venv
+    source .venv/bin/activate
 
 ## Windows
 
-Using PowerShell or Command Prompt:
+    python -m venv .venv
+    .venv\Scripts\activate
 
-    py -m venv .venv
+Install the dependencies:
 
----
-
-# 5. Activate the Virtual Environment
-
-## Linux
-
-Run:
-
-    source .venv/bin/activate
-
-The terminal should now display something similar to:
-
-    (.venv) user@computer:~/project$
-
-## macOS
-
-Run:
-
-    source .venv/bin/activate
-
-The terminal should now display something similar to:
-
-    (.venv) user@computer project %
-
-## Windows PowerShell
-
-Run:
-
-    .venv\Scripts\Activate.ps1
-
-The terminal should display:
-
-    (.venv) PS C:\project>
-
-If PowerShell prevents the activation script from running, execute:
-
-    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-
-Then activate the environment again:
-
-    .venv\Scripts\Activate.ps1
-
-## Windows Command Prompt
-
-Run:
-
-    .venv\Scripts\activate.bat
+    python -m pip install -r company_intelligence/requirements.txt
 
 ---
 
-# 6. Install Dependencies
+# 4. Using the Financial Data Module
 
-Make sure the virtual environment is activated.
+The module is located at:
 
-Then run:
+    company_intelligence/yfinance_data.py
 
-    pip install -r requirements.txt
+Import the function:
 
-This installs all dependencies required by the project.
+    from company_intelligence.yfinance_data import get_all_company_financials
 
----
+Then call:
 
-# 7. Configure API Keys
+    data = get_all_company_financials()
 
-The application requires two API keys:
+No company name or ticker needs to be provided.
 
-- `EXA_API_KEY`
-- `GEMINI_API_KEY`
-
-Do not place API keys directly into the source code.
-
-Do not commit API keys to Git.
-
-## Linux
-
-Run:
-
-    export EXA_API_KEY="your_exa_api_key"
-    export GEMINI_API_KEY="your_gemini_api_key"
-
-These variables will remain available for the current terminal session.
-
-## macOS
-
-Run:
-
-    export EXA_API_KEY="your_exa_api_key"
-    export GEMINI_API_KEY="your_gemini_api_key"
-
-These variables will remain available for the current terminal session.
-
-## Windows PowerShell
-
-Run:
-
-    $env:EXA_API_KEY="your_exa_api_key"
-    $env:GEMINI_API_KEY="your_gemini_api_key"
-
-These variables will remain available for the current PowerShell session.
-
-## Windows Command Prompt
-
-Run:
-
-    set EXA_API_KEY=your_exa_api_key
-    set GEMINI_API_KEY=your_gemini_api_key
-
-These variables will remain available for the current Command Prompt session.
----
-## 8. Usage
-
-After completing the environment setup, the consumer can use the module directly from Python:
-
-    from public_intelligence import get_company_intelligence
-
-    result = get_company_intelligence("Company name")
-
-    print(result["company"])
-    print(result["facts"])
----
-# 9. Response Structure
-
-The API returns JSON in the following general structure:
-
-    {
-        "company": "MTN Group",
-        "retrieval_timestamp": "...",
-        "sources": [
-            {
-                "source_id": "source_001",
-                "title": "...",
-                "url": "...",
-                "source_type": "...",
-                "document_type": "..."
-            }
-        ],
-        "facts": [
-            {
-                "category": "...",
-                "fact": "...",
-                "value": "...",
-                "unit": "...",
-                "qualifier": "...",
-                "period": "...",
-                "event_date": "...",
-                "page": "...",
-                "evidence": "...",
-                "normalized_value": 123456,
-                "normalized_unit": "...",
-                "source_id": "source_001"
-            }
-        ]
-    }
+The module automatically retrieves data for all 20 configured companies.
 
 ---
 
-# 10. Accessing the Data
+# 5. Returned Data
 
-The main fields returned by the API are:
+The function returns a Python list containing one dictionary for each company.
 
-    data["company"]
+The structure is:
 
-    data["retrieval_timestamp"]
-
-    data["sources"]
-
-    data["facts"]
-
-Each item in `facts` represents an extracted factual data point.
-
-For example:
-
-    for fact in data["facts"]:
-        print(fact["fact"])
-        print(fact["normalized_value"])
-        print(fact["normalized_unit"])
-
-The original extracted value and supporting evidence are also retained.
-
----
-
-# 11. Source Information
-
-Each source is assigned a `source_id`.
+    [
+        {
+            "entity_name": "...",
+            "revenue": ...,
+            "cost_of_sales": ...,
+            "foreign_costs_imports": ...,
+            "net_worth": ...,
+            "total_debt": ...,
+            "total_liquidity": ...
+        }
+    ]
 
 Example:
 
-    {
-        "source_id": "source_001",
-        "title": "2025 Annual Financial Results",
-        "url": "...",
-        "source_type": "public",
-        "document_type": "financial_results"
-    }
+    from company_intelligence.yfinance_data import get_all_company_financials
 
-Facts reference their originating source using `source_id`.
+    data = get_all_company_financials()
+
+    print(data)
+
+A specific company can then be accessed by iterating over the returned list:
+
+    for company in data:
+        print(company["entity_name"])
+        print(company["revenue"])
+        print(company["total_debt"])
+
+---
+
+# 6. Financial Fields
+
+Each company contains the following fields:
+
+### entity_name
+
+The name of the company.
+
+### revenue
+
+The company's most recent available total revenue reported by Yahoo Finance.
+
+### cost_of_sales
+
+The company's most recent available cost of revenue reported by Yahoo Finance.
+
+### foreign_costs_imports
+
+Foreign costs/import information.
+
+This field is currently not populated by the yfinance data source and may therefore
+return `None`.
+
+### net_worth
+
+The company's most recent available stockholders' equity.
+
+### total_debt
+
+The company's most recent available total debt.
+
+### total_liquidity
+
+The company's available cash and short-term investments.
+
+If one of these values is unavailable, the available value is used.
+
+If neither is available, the field returns `None`.
+
+---
+
+# 7. Missing Data
+
+The module does not invent missing financial information.
+
+If a value is unavailable from the source, it is returned as:
+
+    None
+
+Consumers should therefore handle `None` values appropriately.
 
 For example:
 
-    {
-        "fact": "Total reported revenue",
-        "normalized_value": 226707,
-        "normalized_unit": "rm",
-        "source_id": "source_001"
-    }
-
-This allows a consumer to associate an extracted fact with its original document.
+    if company["total_debt"] is not None:
+        print(company["total_debt"])
 
 ---
 
-# 12. Normalized Values
+# 8. Generated Analysis File
 
-Where possible, numerical values are converted into machine-readable values.
+When `get_all_company_financials()` is called, the module also saves the retrieved
+data as:
 
-For example:
+    pipeline/analysis/external_financial.json
 
-    "10 million"
+The required directories are created automatically if they do not already exist.
 
-becomes:
-
-    normalized_value: 10000000
-
-and:
-
-    normalized_unit: null
-
-Similarly:
-
-    "R16.6 billion"
-
-becomes approximately:
-
-    normalized_value: 16600000000
-
-    normalized_unit: "zar"
-
-The original `value` and `unit` fields are preserved.
-
-Normalization does not replace the original extracted information.
+The JSON file contains the same data returned by the function.
 
 ---
 
-# 13. Error Responses
+# 9. Consumer Workflow
 
-## Empty Company Name
+The intended consumer workflow is simply:
 
-An empty or whitespace-only company name raises:
+    from company_intelligence.yfinance_data import get_all_company_financials
 
-    ValueError("Company name cannot be empty")
+    data = get_all_company_financials()
 
+The consumer receives the Python data structure directly.
 
----
+At the same time, the module generates:
 
-# 14. Environment Variables
+    pipeline/analysis/external_financial.json
 
-The following environment variables are required:
+The consumer does not need to:
 
-    EXA_API_KEY
-    GEMINI_API_KEY
-
-These values must be configured before starting the API.
-
-Never commit these values to the repository.
-
----
-
-# 15. Security
-
-API keys must not be:
-
-- committed to Git
-- included in source code
-- included in `README.md`
-- included in example code
-- shared publicly
-
-The `.gitignore` file should include:
-
-    .venv/
-    __pycache__/
-    *.pyc
-    .env
-
-If environment variables are stored using a `.env` file for local development, that file must not be committed.
+- provide company names
+- provide ticker symbols
+- interact with yfinance
+- retrieve financial statements manually
+- create the output directories
+- write the JSON file
 
 ---
 
-# 16. Architecture
+# 10. Example Consumer Code
 
-The company intelligence system operates as an internal Python pipeline:
+    from company_intelligence.yfinance_data import get_all_company_financials
 
-    Company Name
-         |
-         v
-    Public Search
-         |
-         v
-    Document Retrieval
-         |
-         v
-    Document Classification
-         |
-         v
-    Document Selection
-         |
-         v
-    PDF Text Extraction
-         |
-         v
-    Relevant Page Detection
-         |
-         v
-    Chunked Evidence Extraction
-         |
-         v
-    Value Normalization
-         |
-         v
-    Structured Python Dictionary
-         |
-         v
-    Consumer Python Code
+    data = get_all_company_financials()
 
-The consumer does not need to interact with any of the internal stages.
-
-The intended interface is:
-
-    get_company_intelligence(company_name)
-
-The function handles the complete retrieval and extraction pipeline and returns the resulting company intelligence as a structured Python dictionary.
+    for company in data:
+        print(f"Company: {company['entity_name']}")
+        print(f"Revenue: {company['revenue']}")
+        print(f"Cost of Sales: {company['cost_of_sales']}")
+        print(f"Foreign Costs / Imports: {company['foreign_costs_imports']}")
+        print(f"Net Worth: {company['net_worth']}")
+        print(f"Total Debt: {company['total_debt']}")
+        print(f"Total Liquidity: {company['total_liquidity']}")
+        print()
 
 ---
 
-# 17. Consumer Workflow
+# 11. Important
 
-The intended workflow for the consumer is:
+The `company_intelligence` module is intended to be consumed as a Python module.
 
-    1. Set up the Python environment.
-    2. Configure the required API keys.
-    3. Import the company intelligence module.
-    4. Provide a company name.
-    5. Call `get_company_intelligence()`.
-    6. Receive the structured company intelligence.
-    7. Read the returned facts and sources.
+The consumer should use:
 
-Example:
+    get_all_company_financials()
 
-    from public_intelligence import get_company_intelligence
+as the interface to the financial data.
 
-    company_data = get_company_intelligence("MTN Group")
-
-    print(company_data["company"])
-    print(company_data["facts"])
-    print(company_data["sources"])
-
-No direct interaction with Exa, Gemini, PDF extraction, document classification,
-document selection, or normalization is required.
-
-The consumer only interacts with:
-
-    get_company_intelligence(company_name)
-
----
-
-
-# 18. Deactivating the Virtual Environment
-
-When finished working on the project:
-
-    deactivate
-
----
-
-# 19. Troubleshooting
-
-## `python3: command not found`
-
-Verify that Python is installed:
-
-    python3 --version
-
-On Windows:
-
-    py --version
-
-## `pip: command not found`
-
-Try:
-
-    python3 -m pip --version
-
-or on Windows:
-
-    py -m pip --version
-
-## Virtual environment will not activate
-
-Verify that `.venv` exists:
-
-    ls -la
-
-On Windows:
-
-    dir
-
-If it does not exist, recreate it using the instructions above.
-
-## Missing API key
-
-Verify that the required environment variables are set.
-
-Linux/macOS:
-
-    echo $EXA_API_KEY
-    echo $GEMINI_API_KEY
-
-Windows PowerShell:
-
-    echo $env:EXA_API_KEY
-    echo $env:GEMINI_API_KEY
-
-# 20. Development Status
-
-The company intelligence module currently provides:
-
-- Public company document discovery
-- Financial document and SENS retrieval
-- Document classification and selection
-- PDF text extraction
-- Relevant page detection
-- Chunked evidence extraction
-- Numerical value normalization
-- Source tracking
-- Structured company intelligence
-
-The primary consumer interface is:
-
-    get_company_intelligence(company_name)
-
-The function returns the retrieved company information as a structured Python dictionary containing the company, source documents, and extracted facts.
+Internal implementation details such as ticker mappings and yfinance calls should
+not need to be accessed by the consumer.

@@ -1,5 +1,1 @@
-fastapi 
-uvicorn 
-requests 
-google-genai 
-PyMuPDF
+yfinance

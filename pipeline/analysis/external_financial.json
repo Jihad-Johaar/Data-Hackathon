@@ -1,0 +1,182 @@
+[
+    {
+        "entity_name": "Anglo American",
+        "revenue": 18546000000.0,
+        "cost_of_sales": 8965000000.0,
+        "foreign_costs_imports": null,
+        "net_worth": 17975000000.0,
+        "total_debt": 15481000000.0,
+        "total_liquidity": 6146000000.0
+    },
+    {
+        "entity_name": "AngloGold Ashanti",
+        "revenue": 9893000000.0,
+        "cost_of_sales": 5022000000.0,
+        "foreign_costs_imports": null,
+        "net_worth": 8091000000.0,
+        "total_debt": 2281000000.0,
+        "total_liquidity": 2905000000.0
+    },
+    {
+        "entity_name": "Aspen Pharmacare",
+        "revenue": 43363000000.0,
+        "cost_of_sales": 24234000000.0,
+        "foreign_costs_imports": null,
+        "net_worth": 84893000000.0,
+        "total_debt": 36120000000.0,
+        "total_liquidity": 6409000000.0
+    },
+    {
+        "entity_name": "BHP Group",
+        "revenue": 51262000000.0,
+        "cost_of_sales": 14531000000.0,
+        "foreign_costs_imports": null,
+        "net_worth": 46228000000.0,
+        "total_debt": 24496000000.0,
+        "total_liquidity": 12042000000.0
+    },
+    {
+        "entity_name": "Bid Corporation",
+        "revenue": 235591182000.0,
+        "cost_of_sales": 177918144000.0,
+        "foreign_costs_imports": null,
+        "net_worth": 47295388000.0,
+        "total_debt": 26206403000.0,
+        "total_liquidity": 11768592000.0
+    },
+    {
+        "entity_name": "Clicks Group",
+        "revenue": 45437640000.0,
+        "cost_of_sales": 34805221000.0,
+        "foreign_costs_imports": null,
+        "net_worth": 6285539000.0,
+        "total_debt": 3786286000.0,
+        "total_liquidity": 2704961000.0
+    },
+    {
+        "entity_name": "Glencore",
+        "revenue": 247535000000.0,
+        "cost_of_sales": 241672000000.0,
+        "foreign_costs_imports": null,
+        "net_worth": 38860000000.0,
+        "total_debt": 41486000000.0,
+        "total_liquidity": 2918000000.0
+    },
+    {
+        "entity_name": "Gold Fields",
+        "revenue": 8751300000.0,
+        "cost_of_sales": 3912700000.0,
+        "foreign_costs_imports": null,
+        "net_worth": 8432600000.0,
+        "total_debt": 3221200000.0,
+        "total_liquidity": 1779200000.0
+    },
+    {
+        "entity_name": "MTN Group",
+        "revenue": 226707000000.0,
+        "cost_of_sales": 54676000000.0,
+        "foreign_costs_imports": null,
+        "net_worth": 144997000000.0,
+        "total_debt": 146722000000.0,
+        "total_liquidity": 142391000000.0
+    },
+    {
+        "entity_name": "NEPI Rockcastle",
+        "revenue": 924166000.0,
+        "cost_of_sales": 306056000.0,
+        "foreign_costs_imports": null,
+        "net_worth": 5006336000.0,
+        "total_debt": 3105937000.0,
+        "total_liquidity": 313994000.0
+    },
+    {
+        "entity_name": "Naspers",
+        "revenue": 10848000000.0,
+        "cost_of_sales": 4085000000.0,
+        "foreign_costs_imports": null,
+        "net_worth": 23304000000.0,
+        "total_debt": 16273000000.0,
+        "total_liquidity": 14451000000.0
+    },
+    {
+        "entity_name": "OUTsurance Group",
+        "revenue": 38432000000.0,
+        "cost_of_sales": null,
+        "foreign_costs_imports": null,
+        "net_worth": 14545000000.0,
+        "total_debt": 379000000.0,
+        "total_liquidity": 9976000000.0
+    },
+    {
+        "entity_name": "Pepkor Holdings",
+        "revenue": 95340000000.0,
+        "cost_of_sales": 57388000000.0,
+        "foreign_costs_imports": null,
+        "net_worth": 63231000000.0,
+        "total_debt": 26903000000.0,
+        "total_liquidity": 5069000000.0
+    },
+    {
+        "entity_name": "Prosus",
+        "revenue": 9705000000.0,
+        "cost_of_sales": 5198000000.0,
+        "foreign_costs_imports": null,
+        "net_worth": 53781000000.0,
+        "total_debt": 17611000000.0,
+        "total_liquidity": 15737000000.0
+    },
+    {
+        "entity_name": "Sanlam",
+        "revenue": 279287000000.0,
+        "cost_of_sales": null,
+        "foreign_costs_imports": null,
+        "net_worth": 101661000000.0,
+        "total_debt": 20099000000.0,
+        "total_liquidity": 45360000000.0
+    },
+    {
+        "entity_name": "Shaftesbury Capital plc",
+        "revenue": 238900000.0,
+        "cost_of_sales": 61200000.0,
+        "foreign_costs_imports": null,
+        "net_worth": 3954200000.0,
+        "total_debt": 1213400000.0,
+        "total_liquidity": 345900000.0
+    },
+    {
+        "entity_name": "Shoprite Holdings",
+        "revenue": 252701000000.0,
+        "cost_of_sales": 191259000000.0,
+        "foreign_costs_imports": null,
+        "net_worth": 30194000000.0,
+        "total_debt": 55876000000.0,
+        "total_liquidity": 10071000000.0
+    },
+    {
+        "entity_name": "The Bidvest Group",
+        "revenue": 126605406000.0,
+        "cost_of_sales": 91540464000.0,
+        "foreign_costs_imports": null,
+        "net_worth": 38044650000.0,
+        "total_debt": 44507599000.0,
+        "total_liquidity": 6193638000.0
+    },
+    {
+        "entity_name": "Valterra Platinum",
+        "revenue": 116330000000.0,
+        "cost_of_sales": 87772000000.0,
+        "foreign_costs_imports": null,
+        "net_worth": 98546000000.0,
+        "total_debt": 5267000000.0,
+        "total_liquidity": 16249000000.0
+    },
+    {
+        "entity_name": "Vodacom Group",
+        "revenue": 167652000000.0,
+        "cost_of_sales": 64262000000.0,
+        "foreign_costs_imports": null,
+        "net_worth": 92554000000.0,
+        "total_debt": 94250000000.0,
+        "total_liquidity": 32761000000.0
+    }
+]
