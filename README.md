@@ -120,15 +120,15 @@ The front-end dashboard uses these fields to populate UI widgets, data tables, a
 ## 1. Requirements
 - Python 3.10 or newer is required for all dependencies.
 - Jupyter Notebook is used for Data Analysis and to load all plots and information for use in the Dashboard
-- All dependencies are listed in
-  requirements.txt
+- All dependencies are listed in:
+  ```requirements.txt```
 
 ## 2. Dependencies Installation
 From the root directory run the following command in the terminal:
-python -m pip install -r requirements.txt
+```python -m pip install -r requirements.txt```
 
 ## 3. Opening Jupyter Notebook
 Open a terminal in the root directory and run:
-jupyter notebook
+```jupyter notebook```
 
 This opens a notebook session in your browser where the Data_Analysis.ipynb file may be opened. Executing all the cell blocks at once refreshes all the data and images for a fresh new session on the dashboard.
