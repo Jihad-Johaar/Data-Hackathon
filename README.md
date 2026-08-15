@@ -128,14 +128,16 @@ The front-end dashboard uses these fields to populate UI widgets, data tables, a
 
 ## 2. Dependencies Installation
 From the root directory run the following command in the terminal:
-    ```bash
-    python -m pip install -r requirements.txt
-    ```
+
+```bash
+python -m pip install -r company_intelligence/requirements.txt
+```
 
 ## 3. Opening Jupyter Notebook
 Open a terminal in the root directory and run:
-    ```bash
-    jupyter notebook
-    ```
+
+```bash
+jupyter notebook
+```
 
 This opens a notebook session in your browser where the Data_Analysis.ipynb file may be opened. Executing all the cell blocks at once refreshes all the data and images for a fresh new session on the dashboard.
