@@ -6,13 +6,13 @@
             "GenAI Agent Context",
             "Frontend Dashboard API"
         ],
-        "generated_timestamp": "2026-08-15 17:15:13"
+        "generated_timestamp": "2026-08-15 18:38:27"
     },
     "portfolio_summary": {
-        "total_portfolio_estimated_wallet_zar_bn": 3107.64316755,
+        "total_portfolio_estimated_wallet_zar_bn": 3510.8894000049995,
         "total_portfolio_captured_zar_bn": 575.4150993668899,
-        "total_portfolio_competitor_leakage_zar_bn": 2532.22806818311,
-        "average_portfolio_share_of_wallet_pct": 33.75602811795071,
+        "total_portfolio_competitor_leakage_zar_bn": 2935.4743006381104,
+        "average_portfolio_share_of_wallet_pct": 29.397010324462098,
         "total_entities_analyzed": 20
     },
     "methodology_parameters": {
@@ -81,12 +81,12 @@
             "Total Capture (ZARbn)": 22.7631739834,
             "sector": "Mining",
             "Est_Trans_Wallet_ZARbn": 391.3656,
-            "Est_SWIFT_Wallet_ZARbn": 0.0,
-            "Est_Trade_Wallet_ZARbn": 24.1672,
+            "Est_SWIFT_Wallet_ZARbn": 96.6688,
+            "Est_Trade_Wallet_ZARbn": 62.83472,
             "Est_Lending_Wallet_ZARbn": 41.486,
-            "Total_Estimated_Wallet_ZARbn": 457.0188,
-            "Share_of_Wallet_%": 4.9807959724,
-            "Competitor_Leakage_ZARbn": 434.2556260166,
+            "Total_Estimated_Wallet_ZARbn": 592.35512,
+            "Share_of_Wallet_%": 3.8428255644,
+            "Competitor_Leakage_ZARbn": 569.5919460166,
             "opportunity_rank": 1
         },
         {
@@ -97,12 +97,12 @@
             "Total Capture (ZARbn)": 45.6217307392,
             "sector": "Retail",
             "Est_Trans_Wallet_ZARbn": 443.96,
-            "Est_SWIFT_Wallet_ZARbn": 0.0,
-            "Est_Trade_Wallet_ZARbn": 3.82518,
+            "Est_SWIFT_Wallet_ZARbn": 9.56295,
+            "Est_Trade_Wallet_ZARbn": 6.694065,
             "Est_Lending_Wallet_ZARbn": 16.7628,
-            "Total_Estimated_Wallet_ZARbn": 464.54798,
-            "Share_of_Wallet_%": 9.8206714276,
-            "Competitor_Leakage_ZARbn": 418.9262492608,
+            "Total_Estimated_Wallet_ZARbn": 476.979815,
+            "Share_of_Wallet_%": 9.5647088838,
+            "Competitor_Leakage_ZARbn": 431.3580842608,
             "opportunity_rank": 2
         },
         {
@@ -113,12 +113,12 @@
             "Total Capture (ZARbn)": 54.011015999,
             "sector": "Retail",
             "Est_Trans_Wallet_ZARbn": 413.509326,
-            "Est_SWIFT_Wallet_ZARbn": 0.0,
-            "Est_Trade_Wallet_ZARbn": 3.55836288,
+            "Est_SWIFT_Wallet_ZARbn": 8.8959072,
+            "Est_Trade_Wallet_ZARbn": 6.22713504,
             "Est_Lending_Wallet_ZARbn": 7.8619209,
-            "Total_Estimated_Wallet_ZARbn": 424.92960978,
-            "Share_of_Wallet_%": 12.7105795303,
-            "Competitor_Leakage_ZARbn": 370.918593781,
+            "Total_Estimated_Wallet_ZARbn": 436.49428914,
+            "Share_of_Wallet_%": 12.3738196221,
+            "Competitor_Leakage_ZARbn": 382.483273141,
             "opportunity_rank": 3
         },
         {
@@ -129,12 +129,12 @@
             "Total Capture (ZARbn)": 55.1249302354,
             "sector": "Telecoms",
             "Est_Trans_Wallet_ZARbn": 253.2447,
-            "Est_SWIFT_Wallet_ZARbn": 0.0,
-            "Est_Trade_Wallet_ZARbn": 2.7338,
+            "Est_SWIFT_Wallet_ZARbn": 15.30928,
+            "Est_Trade_Wallet_ZARbn": 6.56112,
             "Est_Lending_Wallet_ZARbn": 132.0498,
-            "Total_Estimated_Wallet_ZARbn": 388.0283,
-            "Share_of_Wallet_%": 14.2064200563,
-            "Competitor_Leakage_ZARbn": 332.9033697646,
+            "Total_Estimated_Wallet_ZARbn": 407.1649,
+            "Share_of_Wallet_%": 13.5387235578,
+            "Competitor_Leakage_ZARbn": 352.0399697646,
             "opportunity_rank": 4
         },
         {
@@ -145,12 +145,12 @@
             "Total Capture (ZARbn)": 10.2541707847,
             "sector": "Telecoms",
             "Est_Trans_Wallet_ZARbn": 208.7226,
-            "Est_SWIFT_Wallet_ZARbn": 0.0,
-            "Est_Trade_Wallet_ZARbn": 3.2131,
+            "Est_SWIFT_Wallet_ZARbn": 17.99336,
+            "Est_Trade_Wallet_ZARbn": 7.71144,
             "Est_Lending_Wallet_ZARbn": 84.825,
-            "Total_Estimated_Wallet_ZARbn": 296.7607,
-            "Share_of_Wallet_%": 3.4553668274,
-            "Competitor_Leakage_ZARbn": 286.5065292153,
+            "Total_Estimated_Wallet_ZARbn": 319.2524,
+            "Share_of_Wallet_%": 3.2119322469,
+            "Competitor_Leakage_ZARbn": 308.9982292153,
             "opportunity_rank": 5
         },
         {
@@ -161,12 +161,12 @@
             "Total Capture (ZARbn)": 22.1090876776,
             "sector": "Industrials",
             "Est_Trans_Wallet_ZARbn": 185.4239895,
-            "Est_SWIFT_Wallet_ZARbn": 0.0,
-            "Est_Trade_Wallet_ZARbn": 5.49242784,
+            "Est_SWIFT_Wallet_ZARbn": 16.0195812,
+            "Est_Trade_Wallet_ZARbn": 11.21370684,
             "Est_Lending_Wallet_ZARbn": 35.6060792,
-            "Total_Estimated_Wallet_ZARbn": 226.52249654,
-            "Share_of_Wallet_%": 9.7602172037,
-            "Competitor_Leakage_ZARbn": 204.4134088624,
+            "Total_Estimated_Wallet_ZARbn": 248.26335674,
+            "Share_of_Wallet_%": 8.9054977617,
+            "Competitor_Leakage_ZARbn": 226.1542690624,
             "opportunity_rank": 6
         },
         {
@@ -177,13 +177,29 @@
             "Total Capture (ZARbn)": 1.0476054663,
             "sector": "Mining",
             "Est_Trans_Wallet_ZARbn": 163.2816,
-            "Est_SWIFT_Wallet_ZARbn": 0.0,
-            "Est_Trade_Wallet_ZARbn": 8.7772,
+            "Est_SWIFT_Wallet_ZARbn": 35.1088,
+            "Est_Trade_Wallet_ZARbn": 22.82072,
             "Est_Lending_Wallet_ZARbn": 5.267,
-            "Total_Estimated_Wallet_ZARbn": 177.3258,
-            "Share_of_Wallet_%": 0.5907800592,
-            "Competitor_Leakage_ZARbn": 176.2781945337,
+            "Total_Estimated_Wallet_ZARbn": 226.47812,
+            "Share_of_Wallet_%": 0.4625636535,
+            "Competitor_Leakage_ZARbn": 225.4305145337,
             "opportunity_rank": 7
+        },
+        {
+            "entity_name": "Sanlam",
+            "Transactional (ZARbn)": 73.8448102334,
+            "SWIFT (ZARbn)": 8.3416890057,
+            "Trade (ZARbn)": 0.580026756,
+            "Total Capture (ZARbn)": 82.7665259951,
+            "sector": "Financials",
+            "Est_Trans_Wallet_ZARbn": 189.91516,
+            "Est_SWIFT_Wallet_ZARbn": 5.865027,
+            "Est_Trade_Wallet_ZARbn": 2.44376125,
+            "Est_Lending_Wallet_ZARbn": 4.0198,
+            "Total_Estimated_Wallet_ZARbn": 202.24374825,
+            "Share_of_Wallet_%": 40.9241455972,
+            "Competitor_Leakage_ZARbn": 119.4772222549,
+            "opportunity_rank": 8
         },
         {
             "entity_name": "Clicks Group",
@@ -193,13 +209,13 @@
             "Total Capture (ZARbn)": 3.8571093339,
             "sector": "Retail",
             "Est_Trans_Wallet_ZARbn": 80.242861,
-            "Est_SWIFT_Wallet_ZARbn": 0.0,
-            "Est_Trade_Wallet_ZARbn": 0.69610442,
+            "Est_SWIFT_Wallet_ZARbn": 1.74026105,
+            "Est_Trade_Wallet_ZARbn": 1.218182735,
             "Est_Lending_Wallet_ZARbn": 1.1358858,
-            "Total_Estimated_Wallet_ZARbn": 82.07485122,
-            "Share_of_Wallet_%": 4.6995020722,
-            "Competitor_Leakage_ZARbn": 78.2177418861,
-            "opportunity_rank": 8
+            "Total_Estimated_Wallet_ZARbn": 84.337190585,
+            "Share_of_Wallet_%": 4.5734382508,
+            "Competitor_Leakage_ZARbn": 80.4800812511,
+            "opportunity_rank": 9
         },
         {
             "entity_name": "Aspen Pharmacare",
@@ -209,13 +225,13 @@
             "Total Capture (ZARbn)": 15.2073024854,
             "sector": "Healthcare",
             "Est_Trans_Wallet_ZARbn": 60.8373,
-            "Est_SWIFT_Wallet_ZARbn": 0.0,
-            "Est_Trade_Wallet_ZARbn": 1.69638,
+            "Est_SWIFT_Wallet_ZARbn": 4.11978,
+            "Est_Trade_Wallet_ZARbn": 3.15042,
             "Est_Lending_Wallet_ZARbn": 27.09,
-            "Total_Estimated_Wallet_ZARbn": 89.62368,
-            "Share_of_Wallet_%": 16.9679514224,
-            "Competitor_Leakage_ZARbn": 74.4163775146,
-            "opportunity_rank": 9
+            "Total_Estimated_Wallet_ZARbn": 95.1975,
+            "Share_of_Wallet_%": 15.9744767304,
+            "Competitor_Leakage_ZARbn": 79.9901975146,
+            "opportunity_rank": 10
         },
         {
             "entity_name": "Pepkor Holdings",
@@ -225,28 +241,12 @@
             "Total Capture (ZARbn)": 127.5605837041,
             "sector": "Retail",
             "Est_Trans_Wallet_ZARbn": 152.728,
-            "Est_SWIFT_Wallet_ZARbn": 0.0,
-            "Est_Trade_Wallet_ZARbn": 1.14776,
+            "Est_SWIFT_Wallet_ZARbn": 2.8694,
+            "Est_Trade_Wallet_ZARbn": 2.00858,
             "Est_Lending_Wallet_ZARbn": 8.0709,
-            "Total_Estimated_Wallet_ZARbn": 161.94666,
-            "Share_of_Wallet_%": 78.7670358278,
-            "Competitor_Leakage_ZARbn": 34.3860762959,
-            "opportunity_rank": 10
-        },
-        {
-            "entity_name": "Sanlam",
-            "Transactional (ZARbn)": 73.8448102334,
-            "SWIFT (ZARbn)": 8.3416890057,
-            "Trade (ZARbn)": 0.580026756,
-            "Total Capture (ZARbn)": 82.7665259951,
-            "sector": "Financials",
-            "Est_Trans_Wallet_ZARbn": 111.7148,
-            "Est_SWIFT_Wallet_ZARbn": 0.0,
-            "Est_Trade_Wallet_ZARbn": 0.0,
-            "Est_Lending_Wallet_ZARbn": 4.0198,
-            "Total_Estimated_Wallet_ZARbn": 115.7346,
-            "Share_of_Wallet_%": 71.5140727104,
-            "Competitor_Leakage_ZARbn": 32.9680740049,
+            "Total_Estimated_Wallet_ZARbn": 165.67688,
+            "Share_of_Wallet_%": 76.9935936167,
+            "Competitor_Leakage_ZARbn": 38.1162962959,
             "opportunity_rank": 11
         },
         {
@@ -257,13 +257,29 @@
             "Total Capture (ZARbn)": 56.794182151,
             "sector": "Mining",
             "Est_Trans_Wallet_ZARbn": 52.6344,
-            "Est_SWIFT_Wallet_ZARbn": 0.0,
-            "Est_Trade_Wallet_ZARbn": 1.4531,
+            "Est_SWIFT_Wallet_ZARbn": 5.8124,
+            "Est_Trade_Wallet_ZARbn": 3.77806,
             "Est_Lending_Wallet_ZARbn": 24.496,
-            "Total_Estimated_Wallet_ZARbn": 78.5835,
-            "Share_of_Wallet_%": 72.272400887,
-            "Competitor_Leakage_ZARbn": 21.789317849,
+            "Total_Estimated_Wallet_ZARbn": 86.72086,
+            "Share_of_Wallet_%": 65.4907967368,
+            "Competitor_Leakage_ZARbn": 29.926677849,
             "opportunity_rank": 12
+        },
+        {
+            "entity_name": "OUTsurance Group",
+            "Transactional (ZARbn)": 0.867050257,
+            "SWIFT (ZARbn)": 2.3799571966,
+            "Trade (ZARbn)": 0.2023374592,
+            "Total Capture (ZARbn)": 3.4493449127,
+            "sector": "Financials",
+            "Est_Trans_Wallet_ZARbn": 26.13376,
+            "Est_SWIFT_Wallet_ZARbn": 0.807072,
+            "Est_Trade_Wallet_ZARbn": 0.33628,
+            "Est_Lending_Wallet_ZARbn": 0.0758,
+            "Total_Estimated_Wallet_ZARbn": 27.352912,
+            "Share_of_Wallet_%": 12.6105217342,
+            "Competitor_Leakage_ZARbn": 23.9035670873,
+            "opportunity_rank": 13
         },
         {
             "entity_name": "Naspers",
@@ -273,13 +289,13 @@
             "Total Capture (ZARbn)": 10.2988239778,
             "sector": "Telecoms",
             "Est_Trans_Wallet_ZARbn": 13.4397,
-            "Est_SWIFT_Wallet_ZARbn": 0.0,
-            "Est_Trade_Wallet_ZARbn": 0.20425,
+            "Est_SWIFT_Wallet_ZARbn": 1.1438,
+            "Est_Trade_Wallet_ZARbn": 0.4902,
             "Est_Lending_Wallet_ZARbn": 14.6457,
-            "Total_Estimated_Wallet_ZARbn": 28.28965,
-            "Share_of_Wallet_%": 36.4049183282,
-            "Competitor_Leakage_ZARbn": 17.9908260222,
-            "opportunity_rank": 13
+            "Total_Estimated_Wallet_ZARbn": 29.7194,
+            "Share_of_Wallet_%": 34.6535393643,
+            "Competitor_Leakage_ZARbn": 19.4205760222,
+            "opportunity_rank": 14
         },
         {
             "entity_name": "Prosus",
@@ -289,28 +305,12 @@
             "Total Capture (ZARbn)": 11.9726440189,
             "sector": "Telecoms",
             "Est_Trans_Wallet_ZARbn": 13.4127,
-            "Est_SWIFT_Wallet_ZARbn": 0.0,
-            "Est_Trade_Wallet_ZARbn": 0.2599,
+            "Est_SWIFT_Wallet_ZARbn": 1.45544,
+            "Est_Trade_Wallet_ZARbn": 0.62376,
             "Est_Lending_Wallet_ZARbn": 15.8499,
-            "Total_Estimated_Wallet_ZARbn": 29.5225,
-            "Share_of_Wallet_%": 40.5543027146,
-            "Competitor_Leakage_ZARbn": 17.5498559811,
-            "opportunity_rank": 14
-        },
-        {
-            "entity_name": "OUTsurance Group",
-            "Transactional (ZARbn)": 0.867050257,
-            "SWIFT (ZARbn)": 2.3799571966,
-            "Trade (ZARbn)": 0.2023374592,
-            "Total Capture (ZARbn)": 3.4493449127,
-            "sector": "Financials",
-            "Est_Trans_Wallet_ZARbn": 15.3728,
-            "Est_SWIFT_Wallet_ZARbn": 0.0,
-            "Est_Trade_Wallet_ZARbn": 0.0,
-            "Est_Lending_Wallet_ZARbn": 0.0758,
-            "Total_Estimated_Wallet_ZARbn": 15.4486,
-            "Share_of_Wallet_%": 22.3278802785,
-            "Competitor_Leakage_ZARbn": 11.9992550873,
+            "Total_Estimated_Wallet_ZARbn": 31.3418,
+            "Share_of_Wallet_%": 38.2002438243,
+            "Competitor_Leakage_ZARbn": 19.3691559811,
             "opportunity_rank": 15
         },
         {
@@ -321,12 +321,12 @@
             "Total Capture (ZARbn)": 32.5746116948,
             "sector": "Mining",
             "Est_Trans_Wallet_ZARbn": 22.0088,
-            "Est_SWIFT_Wallet_ZARbn": 0.0,
-            "Est_Trade_Wallet_ZARbn": 0.8965,
+            "Est_SWIFT_Wallet_ZARbn": 3.586,
+            "Est_Trade_Wallet_ZARbn": 2.3309,
             "Est_Lending_Wallet_ZARbn": 15.481,
-            "Total_Estimated_Wallet_ZARbn": 38.3863,
-            "Share_of_Wallet_%": 84.8599935257,
-            "Competitor_Leakage_ZARbn": 5.8116883052,
+            "Total_Estimated_Wallet_ZARbn": 43.4067,
+            "Share_of_Wallet_%": 75.045123667,
+            "Competitor_Leakage_ZARbn": 10.8320883052,
             "opportunity_rank": 16
         },
         {
@@ -337,12 +337,12 @@
             "Total Capture (ZARbn)": 9.5036727969,
             "sector": "Mining",
             "Est_Trans_Wallet_ZARbn": 11.932,
-            "Est_SWIFT_Wallet_ZARbn": 0.0,
-            "Est_Trade_Wallet_ZARbn": 0.5022,
+            "Est_SWIFT_Wallet_ZARbn": 2.0088,
+            "Est_Trade_Wallet_ZARbn": 1.30572,
             "Est_Lending_Wallet_ZARbn": 2.281,
-            "Total_Estimated_Wallet_ZARbn": 14.7152,
-            "Share_of_Wallet_%": 64.584054562,
-            "Competitor_Leakage_ZARbn": 5.2115272031,
+            "Total_Estimated_Wallet_ZARbn": 17.52752,
+            "Share_of_Wallet_%": 54.2214346177,
+            "Competitor_Leakage_ZARbn": 8.0238472031,
             "opportunity_rank": 17
         },
         {
@@ -353,12 +353,12 @@
             "Total Capture (ZARbn)": 9.2654579136,
             "sector": "Mining",
             "Est_Trans_Wallet_ZARbn": 10.1312,
-            "Est_SWIFT_Wallet_ZARbn": 0.0,
-            "Est_Trade_Wallet_ZARbn": 0.39127,
+            "Est_SWIFT_Wallet_ZARbn": 1.56508,
+            "Est_Trade_Wallet_ZARbn": 1.017302,
             "Est_Lending_Wallet_ZARbn": 3.2212,
-            "Total_Estimated_Wallet_ZARbn": 13.74367,
-            "Share_of_Wallet_%": 67.4161844227,
-            "Competitor_Leakage_ZARbn": 4.4782120864,
+            "Total_Estimated_Wallet_ZARbn": 15.934782,
+            "Share_of_Wallet_%": 58.1461228252,
+            "Competitor_Leakage_ZARbn": 6.6693240864,
             "opportunity_rank": 18
         },
         {
@@ -369,12 +369,12 @@
             "Total Capture (ZARbn)": 0.8365016485,
             "sector": "Real Estate",
             "Est_Trans_Wallet_ZARbn": 0.615111,
-            "Est_SWIFT_Wallet_ZARbn": 0.0,
-            "Est_Trade_Wallet_ZARbn": 0.00306056,
+            "Est_SWIFT_Wallet_ZARbn": 0.001224224,
+            "Est_Trade_Wallet_ZARbn": 0.003366616,
             "Est_Lending_Wallet_ZARbn": 2.64004645,
-            "Total_Estimated_Wallet_ZARbn": 3.25821801,
-            "Share_of_Wallet_%": 25.6735935396,
-            "Competitor_Leakage_ZARbn": 2.4217163615,
+            "Total_Estimated_Wallet_ZARbn": 3.25974829,
+            "Share_of_Wallet_%": 25.6615411407,
+            "Competitor_Leakage_ZARbn": 2.4232466415,
             "opportunity_rank": 19
         },
         {
@@ -385,12 +385,12 @@
             "Total Capture (ZARbn)": 0.3966238485,
             "sector": "Real Estate",
             "Est_Trans_Wallet_ZARbn": 0.15005,
-            "Est_SWIFT_Wallet_ZARbn": 0.0,
-            "Est_Trade_Wallet_ZARbn": 0.000612,
+            "Est_SWIFT_Wallet_ZARbn": 0.0002448,
+            "Est_Trade_Wallet_ZARbn": 0.0006732,
             "Est_Lending_Wallet_ZARbn": 1.03139,
-            "Total_Estimated_Wallet_ZARbn": 1.182052,
-            "Share_of_Wallet_%": 33.5538409909,
-            "Competitor_Leakage_ZARbn": 0.7854281515,
+            "Total_Estimated_Wallet_ZARbn": 1.182358,
+            "Share_of_Wallet_%": 33.5451570937,
+            "Competitor_Leakage_ZARbn": 0.7857341515,
             "opportunity_rank": 20
         }
     ],
@@ -436,6 +436,11 @@
                 "cash_cycle": "./dashboard_assets_clients/Valterra_Platinum/cash_cycle.html",
                 "trade_mix": "./dashboard_assets_clients/Valterra_Platinum/trade_mix.html"
             },
+            "Sanlam": {
+                "profile_subplot": "./dashboard_assets/clients/Sanlam_profile.html",
+                "cash_cycle": "./dashboard_assets_clients/Sanlam/cash_cycle.html",
+                "trade_mix": "./dashboard_assets_clients/Sanlam/trade_mix.html"
+            },
             "Clicks Group": {
                 "profile_subplot": "./dashboard_assets/clients/Clicks_Group_profile.html",
                 "cash_cycle": "./dashboard_assets_clients/Clicks_Group/cash_cycle.html",
@@ -451,15 +456,15 @@
                 "cash_cycle": "./dashboard_assets_clients/Pepkor_Holdings/cash_cycle.html",
                 "trade_mix": "./dashboard_assets_clients/Pepkor_Holdings/trade_mix.html"
             },
-            "Sanlam": {
-                "profile_subplot": "./dashboard_assets/clients/Sanlam_profile.html",
-                "cash_cycle": "./dashboard_assets_clients/Sanlam/cash_cycle.html",
-                "trade_mix": "./dashboard_assets_clients/Sanlam/trade_mix.html"
-            },
             "BHP Group": {
                 "profile_subplot": "./dashboard_assets/clients/BHP_Group_profile.html",
                 "cash_cycle": "./dashboard_assets_clients/BHP_Group/cash_cycle.html",
                 "trade_mix": "./dashboard_assets_clients/BHP_Group/trade_mix.html"
+            },
+            "OUTsurance Group": {
+                "profile_subplot": "./dashboard_assets/clients/OUTsurance_Group_profile.html",
+                "cash_cycle": "./dashboard_assets_clients/OUTsurance_Group/cash_cycle.html",
+                "trade_mix": "./dashboard_assets_clients/OUTsurance_Group/trade_mix.html"
             },
             "Naspers": {
                 "profile_subplot": "./dashboard_assets/clients/Naspers_profile.html",
@@ -470,11 +475,6 @@
                 "profile_subplot": "./dashboard_assets/clients/Prosus_profile.html",
                 "cash_cycle": "./dashboard_assets_clients/Prosus/cash_cycle.html",
                 "trade_mix": "./dashboard_assets_clients/Prosus/trade_mix.html"
-            },
-            "OUTsurance Group": {
-                "profile_subplot": "./dashboard_assets/clients/OUTsurance_Group_profile.html",
-                "cash_cycle": "./dashboard_assets_clients/OUTsurance_Group/cash_cycle.html",
-                "trade_mix": "./dashboard_assets_clients/OUTsurance_Group/trade_mix.html"
             },
             "Anglo American": {
                 "profile_subplot": "./dashboard_assets/clients/Anglo_American_profile.html",
