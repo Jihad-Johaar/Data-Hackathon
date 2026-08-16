@@ -36,9 +36,51 @@ function goTo(route, param) {
 }
 
 window.addEventListener("hashchange", render);
-window.addEventListener("DOMContentLoaded", render);
+window.addEventListener("DOMContentLoaded", boot);
+
+/**
+ * Loads real data from results.json / external_financial.json (see
+ * data.js) before the first render. Mock data rendered synchronously
+ * on load is no longer possible now that the app reads from JSON files
+ * on disk rather than a hard-coded object.
+ */
+async function boot() {
+  document.getElementById("app").innerHTML = loadingTemplate();
+  try {
+    await loadSynBankData();
+    render();
+  } catch (err) {
+    document.getElementById("app").innerHTML = errorTemplate(err);
+    console.error("Syn Bank data load failed:", err);
+  }
+}
+
+function loadingTemplate() {
+  return `
+    <div style="display:flex; align-items:center; justify-content:center; height:100vh; flex-direction:column; gap:10px; font-family:var(--font-mono); color:var(--text-muted); background:var(--surface-0);">
+      <div class="eyebrow">SYN BANK</div>
+      <div>Loading portfolio data…</div>
+    </div>
+  `;
+}
+
+function errorTemplate(err) {
+  return `
+    <div style="max-width:560px; margin:80px auto; padding:24px; border:1px solid var(--gap-high); border-radius:var(--radius); background:var(--gap-high-wash); font-family:var(--font-body); color:var(--text-primary);">
+      <div class="eyebrow" style="color:var(--gap-high); margin-bottom:8px;">DATA LOAD FAILED</div>
+      <p style="margin:0 0 8px;">${err.message}</p>
+      <p style="margin:0; font-size:12.5px; color:var(--text-secondary);">
+        Make sure results.json and external_financial.json are served from the same
+        directory as index.html, and that the app is opened via a local/dev server
+        (fetch of local JSON files is blocked when opening index.html directly as a file://).
+      </p>
+    </div>
+  `;
+}
 
 function render() {
+  // Guards against a stray hashchange event firing before boot() finishes loading data.
+  if (!SYNBANK_DATA) return;
   const { route, param } = parseHash();
   document.getElementById("app").innerHTML = shellTemplate(route);
   const pageEl = document.getElementById("page-outlet");
@@ -422,6 +464,8 @@ function renderClientDetailPage(id) {
       </div>
     </div>
 
+    ${renderExternalFinancialsCard(c)}
+
     <div class="grid-12 mt-22">
       <div style="grid-column: span 7;" class="card card-pad">
         <div class="section-label">Product Opportunities<span class="rule"></span></div>
@@ -468,6 +512,52 @@ function renderProductBars(client) {
         </div>`
         )
         .join("")}
+    </div>
+  `;
+}
+
+/**
+ * External Financial Snapshot — raw data straight from
+ * external_financial.json for this entity (matched on entity_name).
+ * Null fields (e.g. cost_of_sales, foreign_costs_imports) are shown as
+ * "—", never invented or coerced to zero.
+ */
+function renderExternalFinancialsCard(client) {
+  const ext = client.externalFinancials;
+
+  if (!ext) {
+    return `
+      <div class="card card-pad mt-22">
+        <div class="section-label">External Financial Snapshot <span class="evidence-tag" style="margin-left:6px;">external_financial.json</span><span class="rule"></span></div>
+        <p class="text-sm text-muted" style="margin:0;">No matching record was found for this entity in external_financial.json.</p>
+      </div>
+    `;
+  }
+
+  const fields = [
+    { label: "Revenue", value: ext.revenue },
+    { label: "Cost of Sales", value: ext.cost_of_sales },
+    { label: "Foreign Costs / Imports", value: ext.foreign_costs_imports },
+    { label: "Net Worth", value: ext.net_worth },
+    { label: "Total Debt", value: ext.total_debt },
+    { label: "Total Liquidity", value: ext.total_liquidity },
+  ];
+
+  return `
+    <div class="card card-pad mt-22">
+      <div class="section-label">External Financial Snapshot <span class="evidence-tag observed" style="margin-left:6px;">external_financial.json</span><span class="rule"></span></div>
+      <div class="grid-4">
+        ${fields
+          .map(
+            (f) => `
+          <div class="kpi-card">
+            <div class="kpi-label">${f.label}</div>
+            <div class="kpi-value display-num" style="font-size:20px;">${formatZAROrDash(f.value)}</div>
+          </div>`
+          )
+          .join("")}
+      </div>
+      <p class="text-sm text-muted mt-12" style="margin-bottom:0;">"—" indicates the field was not disclosed in the source data, not that the value is zero.</p>
     </div>
   `;
 }
