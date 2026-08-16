@@ -1038,6 +1038,7 @@ async function askAI(client, question) {
     }
 
     const data = await response.json();
+    console.log("FULL AI RESPONSE:", data);
 
     if (
         !data.choices ||

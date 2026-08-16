@@ -121,7 +121,8 @@ The front-end dashboard uses these fields to populate UI widgets, data tables, a
 - Python 3.10 or newer is required for all dependencies.
 - Jupyter Notebook is used for Data Analysis and to load all plots and information for use in the Dashboard
 - The latest version of Node.js is required to run the dashboard
-- All dependencies are listed in:
+-npm is required in order to run the dashboard with the AI intergration 
+- All dependencies except npm are listed in:
 
     ```text
     requirements.txt
@@ -132,10 +133,20 @@ From the root directory run the following command in the terminal:
 
 ```bash
 python -m pip install -r requirements.txt
+npm install
 ```
 
-## 3. Setting up a Virtual Environment
+## 3. Setting up a Virtual Environment for the Gen AI Backend
+The GenAI assistant uses an OpenRouter API key.
 
+You can create an API key from the
+[OpenRouter API Keys page](https://openrouter.ai/settings/keys).
+
+Create a `.env` file in the project root:
+
+```text
+OPENROUTER_API_KEY=your_openrouter_api_key_here
+```
 
 ## 4. Opening Jupyter Notebook
 Open a terminal in the root directory and run:
@@ -147,12 +158,21 @@ jupyter notebook
 This opens a notebook session in your browser where the Data_Analysis.ipynb file may be opened. Executing all the cell blocks at once refreshes all the data and images for a fresh new session on the dashboard.
 
 ## 5. Opening the Dashboard
-In the project root folder, run the following command in the terminal or cmd.
+
+Once Node.js, the Python dependencies, and the Node.js dependencies
+have been installed, the dashboard can be started from the project
+root directory.
+
+Run:
 
 ```bash
-python -m http.server 8000
+npm start
 ```
+The terminal will dislay a message similar to:
+Syn AI server running on port 3000
+Dashboard: http://localhost:3000/dashboard/
+Open a web browser and navigate to:
+http://localhost:3000/dashboard/
 
-Once the following message displays in the termianl: 
-```Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...```
-open the dashboard by typing the following into your web browser of choice: http://localhost:8000/dashboard/index.html
+To stop the dashboard server, return to the terminal and press:
+Ctrl + C
