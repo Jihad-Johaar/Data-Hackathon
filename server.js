@@ -32,6 +32,13 @@ app.use(
     )
 );
 
+app.use(
+    "/pipeline",
+    express.static(
+        path.join(__dirname, "pipeline")
+    )
+);
+
 /*
  * Chatbot endpoint.
  *

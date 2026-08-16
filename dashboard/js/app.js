@@ -91,8 +91,9 @@ function render() {
       wireClientsFilters();
       break;
     case "client":
-      pageEl.innerHTML = renderClientDetailPage(param);
-      break;
+          pageEl.innerHTML = renderClientDetailPage(param);
+          wireSuggestedQuestions();
+          break;
     case "opportunities":
       pageEl.innerHTML = renderOpportunitiesPage();
       break;
@@ -595,32 +596,121 @@ function renderAIBriefingPanel(client) {
         <button class="btn btn-brass" onclick="askSynAI('${client.id}')">Ask</button>
       </div>
       <div class="suggested-q">
-        ${SUGGESTED_QUESTIONS.map((q) => `<button onclick="askSynAI('${client.id}', ${JSON.stringify(q)})">${q}</button>`).join("")}
+        ${SUGGESTED_QUESTIONS
+            .map(
+                (q) => `
+                    <button
+                        type="button"
+                        class="suggested-question"
+                        data-client-id="${client.id}"
+                        data-question="${q.replace(/&/g, "&amp;").replace(/"/g, "&quot;")}"
+                    >
+                        ${q}
+                    </button>
+                `
+            )
+            .join("")}
       </div>
     </div>
   `;
 }
 
-function askSynAI(clientId, presetQuestion) {
-  const client = getClientById(clientId);
-  const input = document.getElementById("ai-ask-input");
-  const question = presetQuestion || (input ? input.value.trim() : "");
-  if (!question) return;
+async function askSynAI(clientId, presetQuestion) {
 
-  const log = document.getElementById("ai-chat-log");
-  const userMsg = document.createElement("div");
-  userMsg.className = "ai-chat-msg user";
-  userMsg.textContent = question;
-  log.appendChild(userMsg);
+    const client = getClientById(clientId);
 
-  const answer = findAnswer(client, question);
-  const aiMsg = document.createElement("div");
-  aiMsg.className = "ai-chat-msg ai";
-  aiMsg.textContent = answer;
-  log.appendChild(aiMsg);
+    const input =
+        document.getElementById("ai-ask-input");
 
-  log.scrollTop = log.scrollHeight;
-  if (input) input.value = "";
+    const question =
+        presetQuestion ||
+        (input ? input.value.trim() : "");
+
+    if (!question) {
+        return;
+    }
+
+    const log =
+        document.getElementById("ai-chat-log");
+
+    /*
+     * Display the user's question.
+     */
+    const userMsg =
+        document.createElement("div");
+
+    userMsg.className =
+        "ai-chat-msg user";
+
+    userMsg.textContent =
+        question;
+
+    log.appendChild(userMsg);
+
+    /*
+     * Temporary AI message.
+     */
+    const aiMsg =
+        document.createElement("div");
+
+    aiMsg.className =
+        "ai-chat-msg ai";
+
+    aiMsg.textContent =
+        "Thinking…";
+
+    log.appendChild(aiMsg);
+
+    log.scrollTop =
+        log.scrollHeight;
+
+    if (input) {
+        input.value = "";
+    }
+
+    try {
+
+        const answer =
+            await window.askAI(
+                client,
+                question
+            );
+
+        aiMsg.textContent =
+            answer;
+
+    } catch (error) {
+
+        console.error(
+            "Syn AI request failed:",
+            error
+        );
+
+        aiMsg.textContent =
+            "Sorry, I couldn't get an answer right now.";
+    }
+
+    log.scrollTop =
+        log.scrollHeight;
+}
+
+function wireSuggestedQuestions() {
+    document
+        .querySelectorAll(".suggested-question")
+        .forEach((button) => {
+            button.addEventListener("click", () => {
+                const clientId =
+                    button.dataset.clientId;
+
+                const question =
+                    button.dataset.question;
+
+                askSynAI(
+                    clientId,
+                    question
+                );
+            });
+        });
 }
 
 function findAnswer(client, question) {
