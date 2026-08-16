@@ -162,7 +162,14 @@ Open a terminal in the root directory and run:
 jupyter notebook
 ```
 
-This opens a notebook session in your browser where the Data_Analysis.ipynb file may be opened. Executing all the cell blocks at once refreshes all the data and images for a fresh new session on the dashboard.
+This opens a notebook session in your browser
+1. Open the Data_Analysis.ipynb file in your browser. 
+2. Execute all the cell blocks at once to refreshes all the data and plots.
+3. Wait for a few seconds for the entire notebook to run. A success message should print at the very bottom of the notebook.
+4. Once the success message is displayed, you MUST stop the notebook server.
+
+To stop the notebook server, return to the terminal and press:
+Ctrl + C
 
 ## 5. Opening the Dashboard
 
