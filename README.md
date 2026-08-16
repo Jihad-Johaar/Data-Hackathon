@@ -1,4 +1,4 @@
-# Data-Hackathon
+# Team LadyBugs Standard Bank Data Hackathon 2026
 
 - Contributors:
     - Analytical Rigor and Data Analysis: Jihad Johaar
