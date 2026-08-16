@@ -69,8 +69,8 @@
  * /data/ folder) — nothing else in this file needs to change.
  * ------------------------------------------------------------------- */
 
-const RESULTS_JSON_PATH = "./results.json";
-const EXTERNAL_FINANCIAL_JSON_PATH = "./external_financial.json";
+const RESULTS_JSON_PATH = "../pipeline/results.json";
+const EXTERNAL_FINANCIAL_JSON_PATH = "../pipeline/analysis/external_financial.json";
 
 /* ---------------------------------------------------------------------
  * Product pillars tracked at the individual-client level.
