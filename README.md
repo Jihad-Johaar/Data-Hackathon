@@ -131,7 +131,7 @@ The front-end dashboard uses these fields to populate UI widgets, data tables, a
 From the root directory run the following command in the terminal:
 
 ```bash
-python -m pip install -r company_intelligence/requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 ## 3. Setting up a Virtual Environment
@@ -153,4 +153,6 @@ In the project root folder, run the following command in the terminal or cmd.
 python -m http.server 8000
 ```
 
-Once the following message displays in the termianl: ``Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...``, open the dashboard by typing the following into your web browser of choice: http://localhost:8000/dashboard/index.html
+Once the following message displays in the termianl: 
+```Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...```
+open the dashboard by typing the following into your web browser of choice: http://localhost:8000/dashboard/index.html
