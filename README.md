@@ -120,6 +120,7 @@ The front-end dashboard uses these fields to populate UI widgets, data tables, a
 ## 1. Requirements
 - Python 3.10 or newer is required for all dependencies.
 - Jupyter Notebook is used for Data Analysis and to load all plots and information for use in the Dashboard
+- The latest version of Node.js is required to run the dashboard
 - All dependencies are listed in:
 
     ```text
@@ -133,7 +134,10 @@ From the root directory run the following command in the terminal:
 python -m pip install -r company_intelligence/requirements.txt
 ```
 
-## 3. Opening Jupyter Notebook
+## 3. Setting up a Virtual Environment
+
+
+## 4. Opening Jupyter Notebook
 Open a terminal in the root directory and run:
 
 ```bash
@@ -141,3 +145,12 @@ jupyter notebook
 ```
 
 This opens a notebook session in your browser where the Data_Analysis.ipynb file may be opened. Executing all the cell blocks at once refreshes all the data and images for a fresh new session on the dashboard.
+
+## 5. Opening the Dashboard
+In the project root folder, run the following command in the terminal or cmd.
+
+```bash
+python -m http.server 8000
+```
+
+Once the following message displays in the termianl: ``Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...``, open the dashboard by typing the following into your web browser of choice: http://localhost:8000/dashboard/index.html
