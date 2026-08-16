@@ -11,11 +11,11 @@
 The Share of Wallet (SoW) Intelligence Engine is a data science pipeline and visualization suite designed for corporate banking analytics. It estimates product wallets, calculates competitor leakage, generates interactive visualizations, and compiles a structured JSON to power downstream GenAI modules and front-end dashboards.
 
 ## Table of Contents
-- [Repository Architecture](#Repository Architecture)
-- [Methodology and Financial Engine](#Methodology and Financial Engine)
-- [Model Assumptions](#Model Assumptions, Justifications, Limitations, and Recommendations)
-- [JSON Fields](#JSON Fields)
-- [Installation Guide and Execution](#INSTALLATION AND EXECUTION)
+- [Repository Architecture](#repository-architecture)
+- [Methodology and Financial Engine](#methodology-financial-engine)
+- [Model Assumptions](#model-assumption-limitations-and-recommendations)
+- [JSON Fields](#json-fields)
+- [Installation Guide and Execution](#installation-and-execution)
 
 ## Repository Architecture
 
