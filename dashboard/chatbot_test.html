@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot Test</title>
+</head>
+
+<body>
+
+    <h1>Chatbot Module Test</h1>
+
+    <pre id="output">Loading...</pre>
+
+   <script type="module">
+        import { testAI } from "./js/chatbot.js";
+
+        const output = document.getElementById("output");
+
+        try {
+            const result = await testAI();
+
+            output.textContent = JSON.stringify(
+                result,
+                null,
+                2
+            );
+        } catch (error) {
+            output.textContent =
+                "ERROR:\n" + error.message;
+
+            console.error(error);
+        }
+    </script>
+
+</body>
+</html>
