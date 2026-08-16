@@ -68,7 +68,7 @@ The financial engine estimates a corporate client's total banking wallet by scal
 
 ### 1. Data-Cleaning & Processing Assumptions
 * **Assumption 1:** Duplicate rows in the transactional, SWIFT, and trade finance datasets are categorized strictly as **system errors and are rejected (dropped)**
-  * **Justification:** Duplicates represent a very small percentage of the total dataset size (ranging between $0.39\%$ and $0.43\%$)
+  * **Justification:** Duplicates represent a very small percentage of the total dataset size (ranging between 0.39% and 0.43%)
   * **Limitations:** Dropping duplicates without auditing ledger types or core transaction IDs might accidentally erase legitimate high-frequency corporate transactions (e.g., automated sweeping or recurring settlement entries).
   * **Business Tweaks / Improvements:** Implement a threshold check: if a duplicate matches an identical transaction ID, timestamp, and amount within a 1-second window, flag it for validation rather than blindly deleting it.
 * **Assumption 2:** The three datasets (Transactional, SWIFT, and Trade Finance) hold **equal weighting** in the calculation of Share of Wallet (SOW) and are aggregated in their entirety
@@ -76,9 +76,9 @@ The financial engine estimates a corporate client's total banking wallet by scal
   * **Limitations:** Treating transactional flows (high-frequency, lower-margin) the same as trade finance instruments (low-frequency, high-value, long-tenor) skews structural insights. It optimizes for descriptive data precision while sacrificing predictive value
   * **Business Tweaks / Improvements:** Introduce a **weighted fee-income coefficient** for each pillar rather than raw volumetric weighting. Trade finance yields higher margins per rand than basic transactional switching, so volume should be weighted against profitability.
 * **Assumption 3:** Banks and insurance companies (e.g., Sanlam, OUTsurance) do not report traditional Cost of Sales. To prevent mathematical failures and under-reporting of transactional wallets, missing COS is imputed as **70% of reported revenue** as an operational expense proxy.
-    * **Justification:** A $70\%$ baseline serves as an expert proxy to reflect the heavy cost-to-income and claims burdens characteristic of the sector. Applying a uniform $70\%$ multiplier (${\text{revenue}} \times 0.70$) prevents distorted outliers in cross-sector Share of Wallet (SOW) models, allowing analysts to scale financial sector data alongside capital-intensive industries like mining and telecoms.
-    * **Limitations:** A blanket $70\%$ cost-of-sales proxy treats life insurers (like Sanlam), property and casualty insurers (like OUTsurance), and asset managers identically. In reality, their cost structures—comprising claims ratios, administration expenses, and commission payouts—differ significantly. Because the estimation relies heavily on financial statement ratios to derive proxy metrics, an inaccurate cost-of-sales assumption directly skews the calculated Share of Wallet (SOW) and lending or trade multipliers for financial sector clients.
-    * **Business Tweaks / Improvements:** eplace the uniform $70\%$ rule for all financial institutions with tailored benchmarks that distinguish between life insurers (like Sanlam) and short-term or property and casualty insurers (like OUTsurance) to better capture their underlying claims and commission structures.
+    * **Justification:** A $70\%$ baseline serves as an expert proxy to reflect the heavy cost-to-income and claims burdens characteristic of the sector. Applying a uniform 70% multiplier (${\text{revenue}} \times 0.70$) prevents distorted outliers in cross-sector Share of Wallet (SOW) models, allowing analysts to scale financial sector data alongside capital-intensive industries like mining and telecoms.
+    * **Limitations:** A blanket 70% cost-of-sales proxy treats life insurers (like Sanlam), property and casualty insurers (like OUTsurance), and asset managers identically. In reality, their cost structures—comprising claims ratios, administration expenses, and commission payouts—differ significantly. Because the estimation relies heavily on financial statement ratios to derive proxy metrics, an inaccurate cost-of-sales assumption directly skews the calculated Share of Wallet (SOW) and lending or trade multipliers for financial sector clients.
+    * **Business Tweaks / Improvements:** eplace the uniform 70% rule for all financial institutions with tailored benchmarks that distinguish between life insurers (like Sanlam) and short-term or property and casualty insurers (like OUTsurance) to better capture their underlying claims and commission structures.
 
 ---
 
@@ -95,7 +95,7 @@ The notebook relies heavily on sector-specific deterministic intensity mappings 
 
 * **Assumptions behind Multipliers:** 
   * Capital-heavy sectors (Mining, Industrials) require higher debt and lending multipliers ($\epsilon$ up to $1.00$) and heavier foreign cost intensities (e.g., Mining foreign intensity mapped at $40\%$).
-  * Financial institutions (Sanlam, OUTsurance) have their Cost of Sales defaulted to $70\%$ of revenue (${\text{revenue}} \times 0.70$) to normalize non-standard bank income statements.
+  * Financial institutions (Sanlam, OUTsurance) have their Cost of Sales defaulted to 70% of revenue (${\text{revenue}} \times 0.70$) to normalize non-standard bank income statements.
 * **Justifications:** These ratios encode **expert business insight** to bridge the gap between public balance sheets and missing transactional granularity.
 * **Limitations:** Static multipliers assume homogeneous banking behavior across all companies within a sector. For instance, treating Glencore identically to Valterra Platinum purely based on the "Mining" label disregards structural variations in trade finance needs.
 * **Business Tweaks / Improvements:**
