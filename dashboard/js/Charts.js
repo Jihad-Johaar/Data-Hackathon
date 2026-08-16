@@ -15,6 +15,16 @@ function formatPct(value) {
   return `${Math.round(value * 100)}%`;
 }
 
+/**
+ * Formats a raw ZAR value from external_financial.json, or "—" when the
+ * source explicitly reports the field as null/undefined. Never coerces
+ * a missing value to 0 — a null in external_financial.json means the
+ * field wasn't disclosed, not that it was zero.
+ */
+function formatZAROrDash(value) {
+  return value === null || value === undefined ? "—" : formatZAR(value);
+}
+
 function priorityFromScore(score) {
   if (score >= 80) return "high";
   if (score >= 55) return "medium";
